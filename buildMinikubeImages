@@ -1,0 +1,21 @@
+#!/bin/bash
+
+eval $(minikube docker-env)
+
+docker system prune
+docker image prune
+docker volume prune
+
+for f in 'book-service' 'review-service' 'order-service' 'user-service' 'composite-service' 
+#for f in 'enclume'
+do 
+  echo "gutenberg/$f"
+  docker image rm -f "gutenberg/$f"
+done
+
+# version declared here only
+docker-compose build
+
+docker image ls | grep gutenberg
+
+

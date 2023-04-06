@@ -1,0 +1,17 @@
+#!/bin/bash
+
+docker system prune
+
+unset KUBECONFIG
+
+minikube start \
+  --profile=gutenberg-spring-boot-cloud \
+  --memory=10240 \
+  --cpus=4 \
+  --disk-size=30g \
+  --kubernetes-version=v1.25.4
+
+minikube profile gutenberg-spring-boot-cloud 
+
+minikube addons enable ingress
+minikube addons enable metrics-server

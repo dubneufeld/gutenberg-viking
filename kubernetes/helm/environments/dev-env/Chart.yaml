@@ -1,0 +1,40 @@
+apiVersion: v2
+appVersion: "1.0"
+description: A Helm chart for HANDS-ON MICROSERVICES WITH SPRING BOOT AND SPRING CLOUD running in a Dev and Test Environment
+name: dev-env
+version: 1.0.0
+
+dependencies:
+
+  - name: common
+    version: 1.0.0
+    repository: file://../../common
+
+
+  - name: composite
+    version: 1.0.0
+    repository: file://../../components/composite
+
+  - name: mongodb
+    version: 1.0.0
+    repository: file://../../components/mongodb
+
+   
+  - name: user
+    version: 1.0.0
+    repository: file://../../components/user    
+    
+  - name: book
+    version: 1.0.0
+    repository: file://../../components/book
+  
+  - name: review
+    version: 1.0.0
+    repository: file://../../components/review
+    
+  - name: order
+    version: 1.0.0
+    repository: file://../../components/order  
+
+  
+  

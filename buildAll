@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for server in 'gutenberg-api' 'book-service' 'review-service' 'order-service' 'user-service' 'composite-service'
+do
+  echo ${server}
+  cd $server
+  echo "./build"
+  ./build
+  cd ..
+done;

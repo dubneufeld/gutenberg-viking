@@ -1,0 +1,37 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gutenberg-certificate
+spec:
+  commonName: minikube.gutenberg
+  subject:
+    countries:
+    - my-country
+    localities:
+    - my-locality
+    organizationalUnits:
+    - my-ou
+    organizations:
+    - my-org
+    postalCodes:
+    - my-pc
+    provinces:
+    - my-province
+    serialNumber: my-sn
+    streetAddresses:
+    - my-address
+  dnsNames:
+  - minikube.gutenberg
+  - health.minikube.gutenberg
+  - dashboard.minikube.gutenberg
+  - kiali.minikube.gutenberg
+  - tracing.minikube.gutenberg
+  - prometheus.minikube.gutenberg
+  - grafana.minikube.gutenberg
+  - kibana.minikube.gutenberg
+  - elasticsearch.minikube.gutenberg
+  - mail.minikube.gutenberg
+  issuerRef:
+    name: ca-issuer
+  secretName: gutenberg-certificate
+

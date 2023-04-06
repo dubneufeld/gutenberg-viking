@@ -1,0 +1,6 @@
+#!/bin/bash
+
+helm install gutenberg-dev-env \
+  kubernetes/helm/environments/dev-env \
+  -n gutenberg --create-namespace
+  #--wait

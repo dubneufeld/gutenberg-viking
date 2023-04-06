@@ -1,0 +1,24 @@
+dependencies:
+- name: common
+  repository: file://../../common
+  version: 1.0.0
+- name: composite
+  repository: file://../../components/composite
+  version: 1.0.0
+- name: mongodb
+  repository: file://../../components/mongodb
+  version: 1.0.0
+- name: user
+  repository: file://../../components/user
+  version: 1.0.0
+- name: book
+  repository: file://../../components/book
+  version: 1.0.0
+- name: review
+  repository: file://../../components/review
+  version: 1.0.0
+- name: order
+  repository: file://../../components/order
+  version: 1.0.0
+digest: sha256:36340758d86ee04bda65bdf0224893406cf8705dcc8b52babc32988ec0de4a71
+generated: "2023-03-29T21:36:32.539227844+02:00"
