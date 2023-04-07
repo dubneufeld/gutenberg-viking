@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header::header(title='payment')}">
+</head>    
+<body>
+
+	<div th:replace="~{fragments/main::display}"></div>
+	
+    <div th:if="${not #lists.isEmpty(items)}">
+    
+      <div>
+        <h2 th:text="'Your order was successfully placed'"></h2>
+      </div>
+     
+	  <h2 th:text="'Your order'"></h2>
+	    
+      <div th:if="${items}">
+    
+        <table class="cartTable">
+          <tr class="cartTable">
+        	<th th:text="'Title'"></th>   
+            <th th:text="'Quantity'"></th>
+            <th th:text="'Price'"></th>
+          
+          </tr>
+   		  <tr class="cartTable" th:each="item : ${items}">
+        	<td th:text="${item.title}"></td>
+            <td th:text="${item.quantity}"></td>
+            <td th:text="${item.price}"></td>
+          </tr>
+          <tr class="cartTable">
+        	<td th:text="'total'"></td>
+        	<td></td>
+        	<td th:text="${total}"></td>
+          </tr>
+	    </table>
+	  
+	    <br />
+	    <a th:href="@{/backHome}" th:text="'Continue Shopping'"></a>
+	    <br /><br />
+	  
+	    <h2 th:text="'Your shipping address'"></h2>
+	    <span th:text="${order.shippingAddress.street}"></span><br/>
+	    <span th:text="${order.shippingAddress.city}"></span><br/>
+	    <span th:text="${order.shippingAddress.zip}"></span><br/>
+	    <span th:text="${order.shippingAddress.state}"></span><br/>
+	    <span th:text="${order.shippingAddress.country}"></span><br/>
+	 
+	  	<br /><br />
+	    <h2 th:text="'Your payment method'"></h2>
+	    <span th:text="'Card Number: '"></span><span th:text="${order.paymentMethod.cardNumber}"></span><br/>
+	    <span th:text="'Name on Card: '"></span><span th:text="${order.paymentMethod.name}"></span><br/>
+	   
+	  </div>
+	
+	  <div th:if="${not #lists.isEmpty(others)}">
+	  
+	    <div th:each="disp : ${others}" >
+	      <h3 th:text="'Customers who bought the book: ' + ${disp.book.title} + ' frequently also bought:'"></h3>
+	      <table>
+	      <tr th:each="book : ${disp.otherBooks}">
+	        <td>
+	          <a th:href="@{'/books/' + ${book.slug}}" th:text="${book.title}"></a>
+	        </td>
+	      </tr>
+	      </table>
+	    </div>
+	
+	  </div>
+	  	
+	<div th:if="${#lists.isEmpty(items)}">
+	  <h2 th:text="'Your cart is empty'"></h2>
+	</div>
+	
+	
+	<br /><br />
+    <table>
+        <tr th:each="auth : ${auths}">
+          <td>
+        	<p th:text="${auth.authority}">toto</p>
+       	  </td>        	
+        </tr>
+    </table>
+	
+</body>
+</html>

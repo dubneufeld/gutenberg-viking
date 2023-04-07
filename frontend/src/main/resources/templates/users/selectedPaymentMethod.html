@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/header::header(title='authorizePayment')">
+</head>
+
+
+<body>
+
+	<h2 th:text="'Your payment method'"></h2>
+
+
+	<br /><br />
+	
+    	<p><span th:text="'Name: '"></span><span th:text="${payMeth.name}"></span></p>
+        <p><span th:text="'Card Number: '"></span><span th:text="${payMeth.cardNumber}"></span></p>
+        
+	
+</body>
+
+</html>

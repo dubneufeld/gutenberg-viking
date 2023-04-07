@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/header::header(title='authorizePayment')">
+</head>
+
+
+<body>
+
+	<a th:href="@{/payment}" th:text="'Back to payment'"></a>
+	
+	<h2 th:text="'Your shipping address'"></h2>
+
+
+	<br /><br />
+	
+    	<p><span th:text="'Street: '"></span><span th:text="${address.street}"></span></p>
+        <p><span th:text="'City: '"></span><span th:text="${address.city}"></span></p>
+       	<p><span th:text="'Zip: '"></span><span th:text="${address.zip}"></span></p>
+       	<p><span th:text="'State: '"></span><span th:text="${address.state}"></span></p>
+       	<p><span th:text="'Country: '"></span><span th:text="${address.country}"></span></p>       
+       
+	
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header::header(title='updateAddress')}">
+</head>  
+<body>
+        
+    <div th:replace="fragments/main::display"></div>
+    
+    <h2 th:text="'Address successfuly added'"></h2>
+   
+      
+   
+    <h2 th:text="'Your addresses' "></h2>  
+    
+    
+        
+    <!--div th:each="address : ${user.addresses}">
+	 
+      <span th:text="'Street: ' + ${address.street}"></span><input type="hidden" th:id="street" th:name="street" th:value="${address.street}" /><br/>
+      <span th:text="'City: ' + ${address.city}"></span><input type="hidden" th:id="city" th:name="city" th:value="${address.city}" /><br/>
+      <span th:text="'Zip: ' + ${address.zip}"></span><input type="hidden" th:id="zip" th:name="zip" th:value="${address.zip}" /><br/>
+      <span th:text="'State: ' + ${address.state}"></span><input type="hidden" th:id="state" th:name="state" th:value="${address.state}" /><br/>
+      <span th:text="'Country: ' + ${address.country}"></span><input type="hidden" th:id="country" th:name="country" th:value="${address.country}" /><br/>
+      
+      <br/> 
+    
+    </div>  
+
+</div-->
+    
+</body>
+</html>

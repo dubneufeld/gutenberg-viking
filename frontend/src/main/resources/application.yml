@@ -1,0 +1,26 @@
+spring.session.store-type: redis
+
+
+## redis server host, replace localhost below with your hostname
+spring.data.redis.host: localhost
+## redis port
+spring.data.redis.port: 6379
+
+
+#trust store location
+trust.store: classpath:keystore/edge.p12
+#trust store password
+trust.store.password: password   
+
+
+gutenberg:
+  #baseBooksUrl: http://localhost:8081
+  baseBooksUrl: https://minikube.gutenberg:443/book
+  #baseReviewsUrl: http://localhost:8082
+  baseReviewsUrl: https://minikube.gutenberg:443/review
+  #baseOrdersUrl: http://localhost:8083
+  baseOrdersUrl: https://minikube.gutenberg:443/order
+  #baseUsersUrl: http://localhost:8084  
+  baseUsersUrl: https://minikube.gutenberg:443/user      
+  #compositeUrl: http://localhost:9090  
+  compositeUrl: https://minikube.gutenberg:443/composite    

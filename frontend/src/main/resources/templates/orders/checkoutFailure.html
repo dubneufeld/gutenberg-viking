@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header::header(title='payment')}">
+</head>    
+<body>
+
+	<div th:replace="~{fragments/main::display}"></div>
+	
+	 <h2 th:text="'Checkout failure'"></h2>
+    
+     <h2 th:text="${error}"></h2>
+   
+   
+	    <br />
+	    <a th:href="@{/backHome}" th:text="'Continue Shopping'"></a>
+	    <br /><br />
+	 
+
+	
+</body>
+</html>

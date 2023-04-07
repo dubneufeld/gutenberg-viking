@@ -98,9 +98,11 @@ All images are ready
 
 # 3. Starting the application
 
-Run this script:
+Run this scripts:
 
 ```
+./helmUpdateComp
+./helmUpdateEnv
 ./helmInstallDeployment
 ```
 

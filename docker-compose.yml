@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+
+  user:
+    build: user-service
+    image: gutenberg/user-service
+        
+  book:
+    build: book-service
+    image: gutenberg/book-service
+    
+  review:
+    build: review-service
+    image: gutenberg/review-service  
+    
+  order:
+    build: order-service
+    image: gutenberg/order-service
+    
+  composite:
+    build: composite-service
+    image: gutenberg/composite-service   
+    
+    
+      
+ 
+   
+ 
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header::header(title='updateAddress')}">
+</head>  
+<body>
+        
+  <div th:replace="~{fragments/main::display}"></div>
+    
+  <h2 th:text="'Your profile ' + ${username}"></h2>
+        
+  <div th:if="${not #lists.isEmpty(user.addresses)}">    
+    <h2 th:text="'Your addresses'"></h2>  
+        
+    <div th:each="address,iter : ${user.addresses}">
+    
+	  <form action="#" th:action="@{/deleteAddress}" th:object="${address}" method="post">
+        <span th:text="'Street: ' + ${address.street}"></span><input type="hidden" th:id="street" th:name="street" th:value="${address.street}" /><br/>
+        <span th:text="'City: ' + ${address.city}"></span><input type="hidden" th:id="city" th:name="city" th:value="${address.city}" /><br/>
+        <span th:text="'Zip: ' + ${address.zip}"></span><input type="hidden" th:id="zip" th:name="zip" th:value="${address.zip}" /><br/>
+        <span th:text="'State: ' + ${address.state}"></span><input type="hidden" th:id="state" th:name="state" th:value="${address.state}" /><br/>
+        <span th:text="'Country: ' + ${address.country}"></span><input type="hidden" th:id="country" th:name="country" th:value="${address.country}" /><br/>
+        
+        <span th:if="${iter.index == user.mainShippingAddress}">Primary</span>
+        <p><input type="submit" th:value="'Delete this address'" /></p>
+      </form>
+      
+      <div th:if="${iter.index != user.mainShippingAddress}"> 
+      <form action="#" th:action="@{/makeAddressPrimary}" th:object="${indexForm}" method="post">
+        <input type="hidden" th:name="index" th:value="${iter.index}" />
+        <p><input type="submit" th:value="'Make primary'" /></p>
+      </form>
+      </div>
+      
+      <br/>
+         
+    </div>
+     
+  </div>
+    
+    <div th:if="${#lists.isEmpty(user.addresses)}">
+    <h2 th:text="'No addresss found'"></h2>   
+    </div> 
+     
+    <form action="#" th:action="@{/addAddress}" method="get">
+      <p><input type="submit" th:value="'Add a new address'" /></p>
+    </form>
+         
+    <br /><br />       
+    <div th:if="${not #lists.isEmpty(user.paymentMethods)}">    
+    <h2 th:text="'Your payment methods'"></h2>  
+    
+     <div th:each="payMeth,iter : ${user.paymentMethods}">
+	  <form action="#" th:action="@{/deletePaymentMethod}" th:object="${payMeth}" method="post">
+      <span th:text="'Card Number: ' + ${payMeth.cardNumber}"></span><input type="hidden" th:id="cardNumber" th:name="cardNumber" th:value="${payMeth.cardNumber}" /><br/>
+      <span th:text="'Name on Card: ' + ${payMeth.name}"></span><input type="hidden" th:id="name" th:name="name" th:value="${payMeth.name}" /><br/>
+      <span th:if="${iter.index == user.mainPayMeth}">Primary</span>
+      <p><input type="submit" th:value="'Delete this payment method'" /></p>
+      </form>
+      
+      <div th:if="${iter.index != user.mainPayMeth}"> 
+      <form action="#" th:action="@{/makePaymentMethodPrimary}" th:object="${indexForm}" method="post">
+        <input type="hidden" th:name="index" th:value="${iter.index}" />
+        <p><input type="submit" th:value="'Make primary'" /></p>
+      </form>
+      </div>
+      
+      <br/> 
+    </div>
+    </div>
+    
+    <div th:if="${#lists.isEmpty(user.paymentMethods)}">    
+    <h2 th:text="'No payment method found'"></h2> 
+    </div> 
+    
+    
+    <!--p><a th:href="@{/addPaymentMethod}" th:text="'Add a new payment method'"></a></p-->
+    
+    <form action="#" th:action="@{/addPaymentMethod}" method="get">
+      <p><input type="submit" th:value="'Add a new payment method'" /></p>
+    </form>
+    
+     <a th:href="@{/changeShippingAddress}" th:text="'Change shipping address'">Change shipping address</a>	
+     <br/><br/>
+  
+     
+     <a th:href="@{/changePaymentMethod}" th:text="'Change payment method'">Change payment method</a>	
+  
+  
+    
+</body>
+</html>

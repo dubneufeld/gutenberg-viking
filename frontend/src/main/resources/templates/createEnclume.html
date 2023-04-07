@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/header.html::header(title='home')}"> 
+</head>
+
+<body>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>Cheval</h1>
+  <p>Simple demo site</p> 
+</div>
+
+ <h2 th:text="'Welcome ' + ${username}"></h2> 
+ 
+     <p th:text="'Beast ' + ${beast}"></p> 
+ 	
+ 	<h2 th:text="'Add a new enclume'"></h2>
+        
+        <form action="#" th:action="@{/addEnclume}" th:object="${enclume}" method="post">
+    	  <p><span th:text="'name: '"></span><input type="text" th:field="*{name}" th:required="required" /><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="errors"></span></p>
+       	  <p><span th:text="'weight: '"></span><input type="text" th:field="*{weight}" th:required="required" /><span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" th:class="errors"></span></p>
+  		
+        <p><input type="submit" th:value="'Valid'" /> <input type="reset" th:value="'Reset'" /></p>
+    	</form>
+
+
+
+</body>
+</html>
